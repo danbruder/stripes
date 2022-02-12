@@ -1,0 +1,10 @@
+[package]
+name = "stripes"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+simple-syrup = "0.6.2"
+sqlx = {version = "0.5.10", features=[ "runtime-tokio-rustls" , "sqlite", "migrate", "macros", "uuid", "chrono", "offline"]}

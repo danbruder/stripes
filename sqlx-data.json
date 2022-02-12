@@ -1,0 +1,83 @@
+{
+  "db": "SQLite",
+  "0405e5db9cfcf37b5208a40b5dabc726db6fb0f0186b4b319011e6227e203a43": {
+    "query": "\n            UPDATE \n                item \n            SET \n                title=?2,\n                complete=?3\n            WHERE\n                id=?1\n            ",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Right": 3
+      },
+      "nullable": []
+    }
+  },
+  "86501c39f23c2ec907ff414fa6452070d15247b6a0e6ad0187024ab78482c5e9": {
+    "query": "SELECT * FROM item",
+    "describe": {
+      "columns": [
+        {
+          "name": "id",
+          "ordinal": 0,
+          "type_info": "Text"
+        },
+        {
+          "name": "title",
+          "ordinal": 1,
+          "type_info": "Text"
+        },
+        {
+          "name": "complete",
+          "ordinal": 2,
+          "type_info": "Bool"
+        }
+      ],
+      "parameters": {
+        "Right": 0
+      },
+      "nullable": [
+        false,
+        false,
+        false
+      ]
+    }
+  },
+  "a745eb2c057f0ec060329a609d1e41260f7d4f4d7a6c8f680537e626993327f1": {
+    "query": "SELECT * FROM item WHERE id=?1",
+    "describe": {
+      "columns": [
+        {
+          "name": "id",
+          "ordinal": 0,
+          "type_info": "Text"
+        },
+        {
+          "name": "title",
+          "ordinal": 1,
+          "type_info": "Text"
+        },
+        {
+          "name": "complete",
+          "ordinal": 2,
+          "type_info": "Bool"
+        }
+      ],
+      "parameters": {
+        "Right": 1
+      },
+      "nullable": [
+        false,
+        false,
+        false
+      ]
+    }
+  },
+  "a92f7d327aea515384ebb2287930a2bdfd4d3bbbf9a03f441635342d59bdfec2": {
+    "query": "\n            INSERT INTO item (id, title, complete)\n            VALUES (?1, ?2, ?3);\n            ",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Right": 3
+      },
+      "nullable": []
+    }
+  }
+}
