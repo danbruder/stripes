@@ -1,4 +1,4 @@
-module Ui exposing (centralMessage, layout)
+module UI exposing (centralMessage, layout)
 
 import Css
 import Css.Global
@@ -29,12 +29,18 @@ centralMessage message =
         [ text message ]
 
 
-layout :
-    { title : String
-    , children : List (Html msg)
-    , route : Route
-    }
-    -> Html msg
-layout config =
+layout : List (Html msg) -> Html msg
+layout children =
     div []
-        []
+        [ Css.Global.global Tw.globalStyles
+        , div
+            [ css
+                [ max_w_7xl
+                , mx_auto
+                , Breakpoints.lg
+                    [ px_8
+                    ]
+                ]
+            ]
+            children
+        ]

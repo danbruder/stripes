@@ -4,7 +4,43 @@
 
 module Juniper.InputObject exposing (..)
 
+import Graphql.Internal.Builder.Argument as Argument exposing (Argument)
+import Graphql.Internal.Builder.Object as Object
+import Graphql.Internal.Encode as Encode exposing (Value)
+import Graphql.OptionalArgument exposing (OptionalArgument(..))
+import Graphql.SelectionSet exposing (SelectionSet)
+import Json.Decode as Decode
+import Juniper.Interface
+import Juniper.Object
+import Juniper.Scalar
+import Juniper.ScalarCodecs
+import Juniper.Union
 
-placeholder : String
-placeholder =
-    ""
+
+buildItemInput :
+    ItemInputRequiredFields
+    -> ItemInput
+buildItemInput required____ =
+    { title = required____.title, complete = required____.complete }
+
+
+type alias ItemInputRequiredFields =
+    { title : String
+    , complete : Bool
+    }
+
+
+{-| Type for the ItemInput input object.
+-}
+type alias ItemInput =
+    { title : String
+    , complete : Bool
+    }
+
+
+{-| Encode a ItemInput into a value that can be used as an argument.
+-}
+encodeItemInput : ItemInput -> Value
+encodeItemInput input____ =
+    Encode.maybeObject
+        [ ( "title", Encode.string input____.title |> Just ), ( "complete", Encode.bool input____.complete |> Just ) ]

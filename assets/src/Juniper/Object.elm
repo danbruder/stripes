@@ -5,6 +5,5 @@
 module Juniper.Object exposing (..)
 
 
-placeholder : String
-placeholder =
-    ""
+type Item
+    = Item
